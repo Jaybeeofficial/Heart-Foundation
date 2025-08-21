@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home • Unity Foundation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-body">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-darkglass sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+  <img src="img/HeartFoundation.png" alt="Heart Of Intergrity Foundation Logo" height="50" class="me-2">
+  <!-- <span class="fw-bold text-success">Heart Of Integrity Foundation</span> -->
+</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="program.html">Programs</a></li>
+          <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-accent fw-semibold px-3" href="donate.html">
+              <i class="fa-solid fa-heart me-2"></i>Donate
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="badge rounded-pill text-bg-success-subtle px-3 py-2 mb-3">Nation Building • Youth Empowerment • Humanity</span>
+          <h1 class="display-5 fw-bold lh-sm text-white">Building Nations, <span class="text-accent">Empowering Youths</span></h1>
+          <p class="lead text-white-50 mb-4">We connect humanity through love and unity—creating real opportunities in Humanity, skills, and community development.</p>
+          <p class="lead text-white-50 mb-4">Raising Honest,Reliable and Future Minded Generations.</p>
+          <p class="lead text-white-50 mb-4">Motto: Righteousness exalt a Nation.</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="donate.html" class="btn btn-accent btn-lg px-4"><i class="fa-solid fa-heart me-2"></i>Donate Now</a>
+            <a href="program.html" class="btn btn-outline-light btn-lg px-4">Explore Programs</a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="hero-card shadow-lg">
+            <div class="p-4">
+              <h5 class="mb-2 text-white">Mission Statement</h5>
+              <p class="text-white-50 mb-0">To empower youths, strengthen communities, and build nations through inclusive programs rooted in love, unity, and opportunity.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Impact Stats -->
+  <section class="py-5 bg-section">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3">
+        <div class="stat">
+          <div class="stat-num text-dark counter" data-target="5000">0</div>
+          <div class="stat-label">Youths Empowered</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat">
+          <div class="stat-num text-dark counter" data-target="200">0</div>
+          <div class="stat-label">Communities Served</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat">
+          <div class="stat-num text-dark counter" data-target="120">0</div>
+          <div class="stat-label">Active Volunteers</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat">
+          <div class="stat-num text-dark counter" data-target="35">0</div>
+          <div class="stat-label">Ongoing Projects</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+
+  const animate = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const duration = 2000; // total animation time in ms
+    const startTime = performance.now();
+
+    function update(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const value = Math.floor(progress * target);
+      counter.textContent = value.toLocaleString();
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target.toLocaleString(); // ensure final value
+      }
+    }
+    requestAnimationFrame(update);
+  };
+
+  // Trigger only when stats section is visible
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          observer.unobserve(entry.target); // run once
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+});
+</script>
+
+
+
+
+
+  <!-- Programs -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <h2 class="h1 text-white">Core Programs</h2>
+        <a href="program.html" class="link-accent">See all</a>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card program h-100">
+            <div class="card-body">
+              <div class="icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h5 class="card-title">Education & Skills</h5>
+              <p class="card-text">Scholarships, bootcamps, and mentorship for sustainable growth.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card program h-100">
+            <div class="card-body">
+              <div class="icon-wrap"><i class="fa-solid fa-hand-holding-heart"></i></div>
+              <h5 class="card-title">Humanitarian Aid</h5>
+              <p class="card-text">Rapid-response relief and long-term community resilience.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card program h-100">
+            <div class="card-body">
+              <div class="icon-wrap"><i class="fa-solid fa-people-group"></i></div>
+              <h5 class="card-title">Youth Empowerment</h5>
+              <p class="card-text">Leadership, entrepreneurship, and life-skills training.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card program h-100">
+            <div class="card-body">
+              <div class="icon-wrap"><i class="fa-solid fa-city"></i></div>
+              <h5 class="card-title">Nation Building</h5>
+              <p class="card-text">Civic engagement, policy literacy, and community-building.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Leaders Carousel Section -->
+<section class="py-5 bg-light text-dark">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Our Leadership</h2>
+    <div id="leadersCarousel" class="carousel slide" data-bs-ride="carousel">
+      
+      <div class="carousel-inner">
+
+        <!-- Chairman -->
+        <div class="carousel-item active">
+          <img src="img/williams.png" class="rounded-circle mx-auto d-block mb-3" alt="Chairman" style="width:150px; height:150px; object-fit:cover;">
+          <h5 class="fw-bold mb-0">HON. A.O. WILLIAMS</h5>
+          <p class="text-muted">Chairman, Board of Trustee</p>
+          <small class="fst-italic text-success">"Let integrity and uprightness preserve me... Psalm 25:21"</small>
+        </div>
+
+        <!-- Secretary -->
+        <div class="carousel-item">
+          <img src="img/blessing.png" class="rounded-circle mx-auto d-block mb-3" alt="Secretary" style="width:150px; height:150px; object-fit:cover;">
+          <h5 class="fw-bold mb-0">EZE BLESSING IJEOMA</h5>
+          <p class="text-muted">Secretary, Board of Trustee</p>
+          <small class="fst-italic text-success">"Let integrity and uprightness preserve me... Psalm 25:21"</small>
+        </div>
+
+        <!-- Member -->
+        <div class="carousel-item">
+          <img src="img/ogechi.png" class="rounded-circle mx-auto d-block mb-3" alt="Member" style="width:150px; height:150px; object-fit:cover;">
+          <h5 class="fw-bold mb-0">DARLINGTON C.OGECHI</h5>
+          <p class="text-muted">Member, Board of Trustee</p>
+          <small class="fst-italic text-success">"Let integrity and uprightness preserve me... Psalm 25:21"</small>
+        </div>
+
+        <!-- Add 2 More Leaders -->
+        <div class="carousel-item">
+          <img src="img/asuquo.png" class="rounded-circle mx-auto d-block mb-3" alt="Member" style="width:150px; height:150px; object-fit:cover;">
+          <h5 class="fw-bold mb-0">ASUQUO DARLYNTIN N.</h5>
+          <p class="text-muted">Member, Board of Trustee</p>
+          <small class="fst-italic text-success">"Let integrity and uprightness preserve me... Psalm 25:21"</small>
+        </div>
+
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#leadersCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#leadersCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Testimonials -->
+  <section class="py-5 bg-section">
+    <div class="container">
+      <h2 class="h1 text-dark mb-4">Voices of Impact</h2>
+      <div id="testimonials" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <blockquote class="testimonial text-dark">“Heart Of Integrity Foundation gave me the skills and confidence to start my social enterprise.”<footer>— Amina, Youth Leader</footer></blockquote>
+          </div>
+          <div class="carousel-item">
+            <blockquote class="testimonial text-dark">“Our community now has access to clean water thanks to their rapid intervention.”<footer>— Chinedu, Community Organizer</footer></blockquote>
+          </div>
+          <div class="carousel-item">
+            <blockquote class="testimonial text-dark">“The mentorship changed my life. I’m now mentoring others.”<footer>— Grace, Volunteer</footer></blockquote>
+          </div>
+        </div> 
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonials" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon text-dark"></span><span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonials" data-bs-slide="next">
+          <span class="carousel-control-next-icon text-dark"></span><span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-dark">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      
+      <!-- Left Big Image -->
+      <div class="col-lg-6">
+        <div class="gallery-photo">
+          <img src="img/award2.jpg" alt="Award Photo 1" class="img-fluid rounded">
+        </div>
+      </div>
+
+      <!-- Right Two Stacked Images -->
+      <div class="col-lg-6">
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="gallery-photo">
+              <img src="img/award1.jpg" alt="Award Photo 2" class="img-fluid rounded">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="gallery-photo">
+              <img src="img/award3.jpg" alt="Award Photo 3" class="img-fluid rounded">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- CTA -->
+  <section class="py-5">
+    <div class="container">
+      <div class="cta card border-0">
+        <div class="card-body d-lg-flex align-items-center justify-content-between">
+          <div>
+            <h3 class="text-dark mb-2">Join us in reshaping the future</h3>
+            <p class="text-dark-50 mb-0">Your support powers education, opportunity, and unity.</p>
+          </div>
+          <a href="donate.html" class="btn btn-accent btn-lg mt-3 mt-lg-0"><i class="fa-solid fa-hand-holding-dollar me-2"></i>Donate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer mt-5 pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="text-white mb-3">Heart Of Integrity Foundation</h5>
+          <p class="mb-0 text-white">Building nations, empowering youths, and connecting humanity through love and unity.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-white mb-3">Quick Links</h6>
+          <ul class="list-unstyled small">
+            <li><a class="link-light-50" href="about.html">About</a></li>
+            <li><a class="link-light-50" href="programs.html">Programs</a></li>
+            <li><a class="link-light-50" href="donate.html">Donate</a></li>
+            <li><a class="link-light-50" href="blog.html">Blog</a></li>
+            <li><a class="link-light-50" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-white mb-3">Newsletter</h6>
+          <form class="row gy-2" id="newsletter-form" novalidate>
+            <div class="col-12">
+              <input type="email" class="form-control form-control-lg" id="newsletterEmail" placeholder="Email address" required>
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-accent btn-lg w-100" type="submit">Subscribe</button>
+            </div>
+          </form>
+          <div class="d-flex gap-3 mt-3">
+            <a class="text-white-50 fs-5" href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a class="text-white-50 fs-5" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a class="text-white-50 fs-5" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a class="text-white-50 fs-5" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="d-flex justify-content-between align-items-center small text-white-50">
+        <span>© <span id="year"></span> Heart Of Integrity Foundation. All rights reserved.</span>
+        <a href="privacy.html" class="link-light-50">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/2348168423170" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
